@@ -136,10 +136,14 @@ public class Builder {
 
         if (sound != null) {
             builder.setSound(sound);
+        }else{
+            // Use default sound
+		    builder.setDefaults(Notification.DEFAULT_SOUND);
+		    builder.setVibrate(new long[] { 500, 1000, 500, 1500, 500 });
         }
 
         if (smallIcon == 0) {
-            builder.setSmallIcon(options.getIcon());
+            builder.setSmallIcon(context.getApplicationInfo().icon);
         } else {
             builder.setSmallIcon(options.getSmallIcon());
             builder.setLargeIcon(options.getIconBitmap());
