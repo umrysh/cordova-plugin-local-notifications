@@ -28,7 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
-import android.app.Notification;
+//import android.app.Notification;
 
 import org.json.JSONObject;
 
@@ -137,11 +137,9 @@ public class Builder {
 
         if (sound != null) {
             builder.setSound(sound);
-        }else{
-            // Use default sound
-		    builder.setDefaults(Notification.DEFAULT_SOUND);
-		    builder.setVibrate(new long[] { 500, 1000, 500, 1500, 500 });
         }
+		// Add vibration
+		builder.setVibrate(new long[] { 500, 1000, 500, 1500, 500 });
 
         if (smallIcon == 0) {
             builder.setSmallIcon(context.getApplicationInfo().icon);
